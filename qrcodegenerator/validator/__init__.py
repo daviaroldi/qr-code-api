@@ -1,0 +1,1 @@
+from .validator_factory import QrCodeValidatorFactory
