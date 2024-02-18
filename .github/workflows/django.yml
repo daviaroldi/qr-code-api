@@ -26,4 +26,5 @@ jobs:
         pip install -r requirements.txt
     - name: Run Tests
       run: |
+        pip install -r requirements-test.txt
         tox
