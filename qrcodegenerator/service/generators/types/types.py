@@ -1,0 +1,7 @@
+TYPE_PHONE = "phone"
+TYPE_TEXT = "text"
+TYPE_URL = "url"
+TYPE_WHATSAPP = "whatsapp"
+TYPE_SOCIAL_MEDIA = "social_media"
+
+FREE_GENERATOR_TYPES = [TYPE_PHONE, TYPE_TEXT, TYPE_URL]

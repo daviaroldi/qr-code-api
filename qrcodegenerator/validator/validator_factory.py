@@ -1,14 +1,15 @@
-from abc import ABC, abstractmethod
+from abc import ABC
 
-from .exception import ValidationDataError
 from .phone_validator import QrCodePhoneValidator
 from .validator import QrCodeValidator
-from .base_validator import BaseValidator
+from ..service.generators.types import TYPE_PHONE, TYPE_TEXT, TYPE_URL
 
 
 class QrCodeValidatorFactory(ABC):
     @staticmethod
-    def get_validator(type: str) -> BaseValidator:
-        if type == "phone":
+    def get_validator(type: str):
+        if type == TYPE_PHONE:
             return QrCodePhoneValidator()
+        elif type in [TYPE_TEXT, TYPE_URL]:
+            return QrCodeValidator()
         return QrCodeValidator()

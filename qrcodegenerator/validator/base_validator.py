@@ -1,7 +1,5 @@
-from .exception import ValidationDataError
-from qrcodegenerator.service.generators.qr_code_generator_factory import (
-    QrCodeGeneratorFactory,
-)
+from qrcodegenerator.validator.exception import ValidationDataError
+from qrcodegenerator.service.generators.types import FREE_GENERATOR_TYPES
 
 
 class BaseValidator:
@@ -30,6 +28,4 @@ class BaseValidator:
 
     @staticmethod
     def is_type_field(value):
-        return (
-            value and isinstance(value, str) and value in QrCodeGeneratorFactory.TYPES
-        )
+        return value and isinstance(value, str) and value in FREE_GENERATOR_TYPES
