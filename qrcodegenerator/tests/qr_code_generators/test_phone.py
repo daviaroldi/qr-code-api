@@ -1,20 +1,23 @@
-import unittest
-from django.test import Client
+import json
+import pytest
 
 
-class QRCodePhoneGeneratorTest(unittest.TestCase):
-    def setUp(self):
-        # Every test needs a client.
-        self.client = Client()
+class TestQRCodePhoneGenerator:
+    @pytest.mark.parametrize(
+        "body,response",
+        [
+            ({"type": "phone", "country_code": "55"}, {"phone": "Required field"}),
+            ({"type": "phone", "phone": "5199911223344"}, {"country_code": "Required field"}),
+        ],
+    )
+    def test_missing_fields(self, client, body, response):
+        request_response = client.post(
+            "/qr-code-generator/", body, content_type="application/json"
+        )
 
-    def test_details(self):
-        body = {"type": "phone", "country_code": "55", "phone": "51999326264"}
-        response = self.client.post("/qr-code-generator/", body)
-        # # Issue a GET request.
-        # response = self.client.get("/customer/details/")
-        #
-        # # Check that the response is 200 OK.
-        self.assertEqual(response.status_code, 200)
-        #
-        # # Check that the rendered context contains 5 customers.
-        # self.assertEqual(len(response.context["customers"]), 5)
+        # Check that the response is 400 BadRequest.
+        assert request_response.status_code == 400
+
+        # Check error message for phone field
+        content_decoded = json.loads(request_response.content)
+        assert content_decoded == response
