@@ -16,7 +16,7 @@ class QrCodeEmailGenerator(QrCodeGenerator):
             {"subject": subject, "body": message}
         )
 
-        string_to_encode = ("mailto:{}?{}").format(email, subject_and_message_encoded)
+        string_to_encode = "mailto:{}?{}".format(email, subject_and_message_encoded)
         # qr_code = segno.make(
         #     "mailto:email@email.com?subject=Tracking%20for%20order%20%23141559&body=Tracking%20link%20for%20order%20%23141559%3A%0Ahttps%3A%2F%2Fm.ups.com",
         #     micro=False,
