@@ -1,12 +1,14 @@
 from qrcodegenerator.validator.exception import ValidationDataError
 from qrcodegenerator.service.generators.types import FREE_GENERATOR_TYPES
+from phonenumbers.phonenumberutil import region_code_for_country_code
 
 
 class BaseValidator:
-    required_fields = {}
-    optional_fields = {}
-
     REQUIRED_FIELD_MESSAGE = "Required field"
+
+    def __init__(self):
+        self.required_fields = {"type": BaseValidator.is_type_field}
+        self.optional_fields = {}
 
     def validate(self, values):
         # validate if all required fields are informed
@@ -29,3 +31,25 @@ class BaseValidator:
     @staticmethod
     def is_type_field(value):
         return value and isinstance(value, str) and value in FREE_GENERATOR_TYPES
+
+    @staticmethod
+    def is_text_field(value):
+        return value and isinstance(value, str)
+
+    @staticmethod
+    def is_country_code_valid(value):
+        try:
+            return (
+                value
+                and int(value)
+                and region_code_for_country_code(int(value)) != "ZZ"
+            )
+        except ValueError:
+            return False
+
+    @staticmethod
+    def is_phone_number_valid(value):
+        try:
+            return value and int(value) and True  # TODO refactor this validation
+        except ValueError:
+            return False
