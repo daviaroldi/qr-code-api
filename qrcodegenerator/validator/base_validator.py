@@ -1,3 +1,5 @@
+import re
+
 from qrcodegenerator.validator.exception import ValidationDataError
 from qrcodegenerator.service.generators.types import FREE_GENERATOR_TYPES
 from phonenumbers.phonenumberutil import region_code_for_country_code
@@ -35,6 +37,11 @@ class BaseValidator:
     @staticmethod
     def is_text_field(value):
         return value and isinstance(value, str)
+
+    @staticmethod
+    def is_email_valid(value):
+        pattern = r"^[\w\.-]+@[\w\.-]+\.\w+$"
+        return True if re.match(pattern, value) else False
 
     @staticmethod
     def is_country_code_valid(value):
