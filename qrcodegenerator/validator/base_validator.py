@@ -41,7 +41,11 @@ class BaseValidator:
     @staticmethod
     def is_email_valid(value):
         pattern = r"^[\w\.-]+@[\w\.-]+\.\w+$"
-        return True if re.match(pattern, value) else False
+        return (
+            True
+            if value and isinstance(value, str) and re.match(pattern, value)
+            else False
+        )
 
     @staticmethod
     def is_country_code_valid(value):
