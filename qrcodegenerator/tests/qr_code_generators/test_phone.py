@@ -70,5 +70,5 @@ class TestQRCodePhoneGenerator:
         # Check error message for phone field
         content_decoded = json.loads(request_response.content)
         assert content_decoded == {
-            "qr_code": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKUAAAClAQAAAAAVUAB3AAABEklEQVR42u1WMQ6DMAw8ypAxT8hP4GNIIPEx+pM8gTEDwj27DB26VbZaqRkCeDnd+c4G8uY0/KvfX90BdHtf5S4HXzFLu+Hd+byqaLMYUBswFft0RZuQ7rIUXkchywg0qqrcYtD2XoK4ad92FNnyEdA38+TEvpGluyevU19y4Ym28JHXSpfMNfkrWeTMixpz1eS5c2vIB9KWxQj6cuurRS0Rt0SgkdZCOcHkbQHcRpVzZN9a59w3mpDcLk+2gB2AgUoyBkrQfXIpI7MKgmaJNk8HMglKwJx8boPi70nbAYzBSSCMIfvNooaAvBmaysmfEyMYgFbSmVfx36bWNy4bvfzzZiJyIGu6ZYvZ3f9/+1+qPgCwOoLH8JWOMAAAAABJRU5ErkJggg=="
+            "qr_code": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAUoAAAFKAQAAAABTUiuoAAABW0lEQVR42u2awY2FMAxEo00BKYnWUxIFIHmD7SQg/cO/rDQrvRwQgbk9TTw2FPt29YIUKVKkSJFqSEuuOu7aNZ6ddTw95+PDpT/l64X0b6RJy3ksRtYHsnL4dr2Flg6t20eOp98GC1DnbTXfQkuUVhyQ01vQkqY16pbhrf9StxxPFC+jbonS2pnQDZYXMqEkrde6PjcA0JKh1df2DhiZMuwKW+EtuZOwpq2cW2T5tnowaMl5Ky4W6dBfbJdBS8pb+/w7V2Qv1aClSisc1eeZOHswMqGqt9aZ6HdtGoy6pdcdp7demTBDB7T0aIXB/LPJCh29keAFaU0f7byxF7REZxkPgx1zJEXdkuuOfVV7+m0NC/GWXt3KGfx76FSoW4K01vet3WVFycJbyrTWmZgzKGOWIU2rzojYjK+R4nUrzHQ+kUFLNRPmLLe8R/LQ0uy3+FUWKVKkSJEqS38BzhFdZ+jg5pAAAAAASUVORK5CYII="
         }
