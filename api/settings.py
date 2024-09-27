@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     "corsheaders",
 ]
 
-CORS_ALLOWED_ORIGINS = ("https://qr-code-simple-back-c63c4f740d45.herokuapp.com", )
+CORS_ALLOWED_ORIGINS = ("https://qr-code-simple-front-adbff09103db.herokuapp.com", )
 # CORS_ALLOWED_ORIGINS = ("http://localhost:3000",) # for localhost (REACT Default)
 # CSRF_TRUSTED_ORIGINS = ["http://localhost:3000"]
 # CORS_ORIGIN_ALLOW_ALL = True
